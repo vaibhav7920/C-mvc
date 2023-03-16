@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "Name": "John Doe",
+    "Department": "IT",
+    "Designation": "Software Engineer"
+  },
+  {
+    "Id": 2,
+    "Name": "Jane Doe",
+    "Department": "HR",
+    "Designation": "HR Manager"
+  },
+  {
+    "Id": 3,
+    "Name": "Bob Smith",
+    "Department": "Sales",
+    "Designation": "Sales Executive"
+  },
+  {
+    "Id": 4,
+    "Name": "string",
+    "Department": "string",
+    "Designation": "string"
+  },
+  {
+    "Id": 5,
+    "Name": "Naman",
+    "Department": "PKIC",
+    "Designation": "Manager"
+  }
+]
