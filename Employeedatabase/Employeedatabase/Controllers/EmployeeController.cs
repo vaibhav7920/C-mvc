@@ -74,18 +74,15 @@ namespace Data.Controllers
         [HttpGet("{id},{department}")]
         public Employee GetDep(int id, string department)
         {
-            var data = _context.Employees;
-            var finaldata = from d in data
-                            where d.Department == department
-                            select new
-                            {
-                                ID = d.Id,
-                                NAME = d.Name,
-                                Dep = d.Department
-                            };
-            Employee employee = (Employee)finaldata;
+            var data= _context.Employees;
+            var finaldata = from d in data  where d.Department == department select new
+            {
+                ID =d.Id, 
+                NAME =d.Name, 
+                Dep = d.Department
+            };
+            Employee employee = finaldata;
             return employee;
-
-        }
+            
     }
 }
