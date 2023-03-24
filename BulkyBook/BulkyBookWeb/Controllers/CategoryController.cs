@@ -18,5 +18,33 @@ namespace BulkyBookWeb.Controllers
             IEnumerable<Category> objCategoryList = _db.Categories;
             return View(objCategoryList);
         }
+
+
+        //Get
+        public IActionResult Create()
+        {
+
+            return View();
+        }
+
+        //post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category obj)
+        {
+            //Custom error message
+            if(obj.Name ==obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("customerror", "the Display Order can't match name");
+            }
+            if (ModelState.IsValid) {
+                _db.Categories.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
+            
+        }
     }
 }

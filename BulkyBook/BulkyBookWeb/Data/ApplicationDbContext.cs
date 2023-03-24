@@ -7,7 +7,7 @@ namespace BulkyBookWeb.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base (options)
         {
-            
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
 
         public DbSet<Category> Categories { get; set; }
