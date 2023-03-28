@@ -119,15 +119,15 @@ namespace BulkyBookWeb.Controllers
         }
 
         //post
-        [HttpPost, ActionName("Delete")]
+        [HttpPost,ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeletePost(int ? id)
+        public IActionResult DeletePost(int? id)
         {
             var obj = _db.Categories.Find(id);
             //Custom error message
-            if (obj.Name == obj.DisplayOrder.ToString())
+            if (obj == null)
             {
-                ModelState.AddModelError("customerror", "the Display Order can't match name");
+                return NotFound();
             }
          
                 _db.Categories.Remove(obj);
