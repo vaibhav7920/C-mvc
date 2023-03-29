@@ -20,9 +20,20 @@ namespace AbbyWeb.Pages.Categories
         }
         public async Task<IActionResult> OnPost()
         {
-await _db.Category.AddAsync(Category);
-           await _db.SaveChangesAsync();  
-            return RedirectToPage("Index");
+            //custom error
+            if(Category.Name == Category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError(string.Empty , "The Display Order canno match the Display Name");
+            }
+
+            //Server Error
+            if (ModelState.IsValid)
+            {
+                await _db.Category.AddAsync(Category);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            return Page();
         }
     }
 }
