@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\AbbyWeb.bundle.scp.css"
     },
     {
+      "Id": "D:\\C# mvc\\Abby\\AbbyWeb\\wwwroot\\css\\StyleSheet.css",
+      "PackagePath": "staticwebassets\\css\\StyleSheet.css"
+    },
+    {
       "Id": "D:\\C# mvc\\Abby\\AbbyWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

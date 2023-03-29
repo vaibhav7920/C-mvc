@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zhgixCz/N0b1VM+dAOUpEpE+42AX0NmAdQD58ZHxNfE=",
+  "Hash": "vm76Em6dfuxSO6ENppOpw+pSm+Emvvm3gF3TlRmQuZY=",
   "Source": "AbbyWeb",
   "BasePath": "_content/AbbyWeb",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\C# mvc\\Abby\\AbbyWeb\\wwwroot\\css\\StyleSheet.css",
+      "SourceId": "AbbyWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C# mvc\\Abby\\AbbyWeb\\wwwroot\\",
+      "BasePath": "_content/AbbyWeb",
+      "RelativePath": "css/StyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\StyleSheet.css"
     },
     {
       "Identity": "D:\\C# mvc\\Abby\\AbbyWeb\\wwwroot\\favicon.ico",
