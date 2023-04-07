@@ -23,7 +23,7 @@ namespace AbbyWeb.Pages.Categories
             //custom error
             if(Category.Name == Category.DisplayOrder.ToString())
             {
-                ModelState.AddModelError(string.Empty , "The Display Order canno match the Display Name");
+                ModelState.AddModelError( "Category.Name" , "The Display Order canno match the Display Name");
             }
 
             //Server Error
@@ -31,6 +31,7 @@ namespace AbbyWeb.Pages.Categories
             {
                 await _db.Category.AddAsync(Category);
                 await _db.SaveChangesAsync();
+                TempData["Success"] = "Category created Successfully";
                 return RedirectToPage("Index");
             }
             return Page();

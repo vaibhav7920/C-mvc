@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NRwuFaNBO/bMQyznsdQmTDd4Snldh5DAXis3TgAZFZA=",
+  "Hash": "UTYM02czXsn3nYoGzBri9oBY8lDkOVcCs7IE8veIMCs=",
   "Source": "BulkyBookWeb",
   "BasePath": "_content/BulkyBookWeb",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Boostwatch Theme.css"
+    },
+    {
+      "Identity": "D:\\C# mvc\\BulkyBook\\BulkyBookWeb\\wwwroot\\css\\Flatly.css",
+      "SourceId": "BulkyBookWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C# mvc\\BulkyBook\\BulkyBookWeb\\wwwroot\\",
+      "BasePath": "_content/BulkyBookWeb",
+      "RelativePath": "css/Flatly.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Flatly.css"
     },
     {
       "Identity": "D:\\C# mvc\\BulkyBook\\BulkyBookWeb\\wwwroot\\css\\site.css",

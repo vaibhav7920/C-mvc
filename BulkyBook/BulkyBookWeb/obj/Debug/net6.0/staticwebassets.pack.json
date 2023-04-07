@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Boostwatch Theme.css"
     },
     {
+      "Id": "D:\\C# mvc\\BulkyBook\\BulkyBookWeb\\wwwroot\\css\\Flatly.css",
+      "PackagePath": "staticwebassets\\css\\Flatly.css"
+    },
+    {
       "Id": "D:\\C# mvc\\BulkyBook\\BulkyBookWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
