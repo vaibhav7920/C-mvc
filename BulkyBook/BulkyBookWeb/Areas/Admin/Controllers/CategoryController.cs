@@ -1,23 +1,27 @@
 ﻿
+using BulkyBook.DataAccess.Repositoy;
 using BulkyBook.DataAccess.Repositoy.IRepository;
 using BulkyBook.Models;
 using BulkyBookWeb.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BulkyBookWeb.Controllers
+namespace BulkyBookWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
-        private readonly ICategoryRepository _db;
 
-        public CategoryController(ICategoryRepository db)
+
+        private readonly IUnitOfWork _unitOfWork;
+
+        public CategoryController(IUnitOfWork unitOfWork)
         {
-            _db = db; 
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
 
-            IEnumerable<Category> objCategoryList = _db.GetAll();
+            IEnumerable<Category> objCategoryList = _unitOfWork.Category.GetAll();
             return View(objCategoryList);
         }
 
@@ -35,39 +39,41 @@ namespace BulkyBookWeb.Controllers
         public IActionResult Create(Category obj)
         {
             //Custom error message
-            if(obj.Name ==obj.DisplayOrder.ToString())
+            if (obj.Name == obj.DisplayOrder.ToString())
             {
                 ModelState.AddModelError("customerror", "the Display Order can't match name");
             }
-            if (ModelState.IsValid) {
-                _db.Add(obj);
-                _db.Save();
-                TempData["success"]="Category created scuccessfuly";
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.Category.Add(obj);
+                _unitOfWork.Save();
+                TempData["success"] = "Category created scuccessfuly";
                 return RedirectToAction("Index");
             }
 
             return View(obj);
-            
+
         }
 
 
 
         //EDIT
-        public IActionResult Edit(int ? id)
+        public IActionResult Edit(int? id)
         {
-            if(id == null || id==0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
 
             // 3 ways to find an item
-             // var categoryfromDb = _db.Categories.Find(id);
-            var category = _db.GetFirstOrDefault(u => u.Id == id);
-           //
-           //
-           //var category = _db.Categories.SingleOrDefault(c => c.Id == id);
+            // var categoryfromDb = _db.Categories.Find(id);
+            var category = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+            //
+            //
+            //var category = _db.Categories.SingleOrDefault(c => c.Id == id);
 
-            if (category == null) {
+            if (category == null)
+            {
                 return NotFound();
             }
             return View(category);
@@ -85,8 +91,8 @@ namespace BulkyBookWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                _db.Update(obj);
-                _db.Save();
+                _unitOfWork.Category.Update(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Category updated scuccessfuly";
                 return RedirectToAction("Index");
             }
@@ -107,8 +113,8 @@ namespace BulkyBookWeb.Controllers
             }
 
             // 3 ways to find an item
-           // var categoryfromDb = _db.Categories.Find(id);
-             var categoryfromDb = _db.GetFirstOrDefault(u => u.Id == id);
+            // var categoryfromDb = _db.Categories.Find(id);
+            var categoryfromDb = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
             //
             //
             //var category = _db.Categories.SingleOrDefault(c => c.Id == id);
@@ -121,22 +127,22 @@ namespace BulkyBookWeb.Controllers
         }
 
         //post
-        [HttpPost,ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
-            var obj = _db.GetFirstOrDefault(u => u.Id == id);
+            var obj = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
             //Custom error message
             if (obj == null)
             {
                 return NotFound();
             }
-         
-                _db.Remove(obj);
-                _db.Save();
-                TempData["success"] = "Category deleted scuccessfuly";
-                return RedirectToAction("Index");
-       
+
+            _unitOfWork.Category.Remove(obj);
+            _unitOfWork.Save();
+            TempData["success"] = "Category deleted scuccessfuly";
+            return RedirectToAction("Index");
+
         }
 
     }

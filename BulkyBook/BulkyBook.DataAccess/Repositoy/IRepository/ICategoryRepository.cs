@@ -11,7 +11,7 @@ namespace BulkyBook.DataAccess.Repositoy.IRepository
     {
 
         void Update(Category obj);
-
-        void Save();
+        
+     
     }
 }
